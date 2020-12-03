@@ -1,5 +1,3 @@
-import numpy as np
-
 def get_input(filePath):
 	f = open(filePath)
 
