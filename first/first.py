@@ -33,7 +33,6 @@ def part2(data):
 			if 2020 - x - y > 0 and 2020 - x - y in seen:
 				return (x * y * (2020 - x - y), x, y, (2020 - x - y))
 			seen.add(y)
-		seen.add(x)
 
 def main():
 	data = get_input("input.txt")
@@ -41,10 +40,10 @@ def main():
 	print("Part 1:")
 
 	res = part1_slow(data)
-	print(res)
+	print("Slow: ", res)
 
 	res = part1_fast(data)
-	print(res)
+	print("Fast: ", res)
 
 	print("Part 2:")
 
