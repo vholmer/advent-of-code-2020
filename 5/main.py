@@ -33,7 +33,7 @@ def get_seat_id(boardingpass, lower = 0, upper = 127):
 def part1(data):
 	sums = []
 
-	numbers = [int(x.replace("B", "1").replace("F", "0").replace("L", "0").replace("R", "1"), 2) for x in data]
+	numbers = [int(x.translate(str.maketrans({"B": "1", "F": "0", "L": "0", "R": "1"})), 2) for x in data]
 
 	return get_seat_id(data[np.argmax(numbers)])
 
@@ -50,7 +50,7 @@ def part2(data):
 	If yes we found our seat and then convert back to alphabetical boarding pass and calculate the seat id
 	"""
 
-	binaries = [x.replace("B", "1").replace("F", "0").replace("L", "0").replace("R", "1") for x in data]
+	binaries = [x.translate(str.maketrans({"B": "1", "F": "0", "L": "0", "R": "1"})) for x in data]
 
 	binary_dict = {}
 
@@ -76,7 +76,7 @@ def part2(data):
 			my_seat = key + "01"
 			break
 
-	return get_seat_id(my_seat[:7].replace("0", "F").replace("1", "B") + my_seat[7:].replace("0", "L").replace("1", "R"))
+	return get_seat_id(my_seat[:7].translate(str.maketrans({"0": "F", "1": "B"})) + my_seat[7:].translate(str.maketrans({"0": "L", "1": "R"})))
 
 def main():
 	data = get_input()
