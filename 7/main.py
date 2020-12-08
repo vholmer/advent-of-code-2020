@@ -100,7 +100,7 @@ def part1(tree):
 	# Find shiny gold
 	shiny_gold = [node for node in tree.nodes if node.color == "shiny gold"]
 
-	# Traverse roots until we find shiny gold bag
+	# Traverse from shiny gold bag "upwards" until we find the set of all nodes that can contain it
 	return len(traverse(shiny_gold))
 
 def part2(tree):
